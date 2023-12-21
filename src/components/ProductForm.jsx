@@ -1,6 +1,20 @@
+import { useState } from "react";
+
 function ProductForm() {
+  const [name, setName] = useState("");
+  const [url, setUrl] = useState("");
+  const [price, setPrice] = useState("");
+  const [detail, setDetail] = useState("");
+
+  function showSubmit() {
+    alert(`name : ${name}
+price : ${price}
+image : ${url}
+description : ${detail}`);
+  }
+
   return (
-    <form className="post-form">
+    <form className="post-form" onSubmit={() => showSubmit()}>
       <h1>Create Product Form</h1>
       <div className="input-container">
         <label>
@@ -10,7 +24,7 @@ function ProductForm() {
             name="name"
             type="text"
             placeholder="Enter name here"
-            onChange={() => {}}
+            onChange={(event) => setName(event.target.value)}
           />
         </label>
       </div>
@@ -22,7 +36,7 @@ function ProductForm() {
             name="image"
             type="text"
             placeholder="Enter image url here"
-            onChange={() => {}}
+            onChange={(event) => setUrl(event.target.value)}
           />
         </label>
       </div>
@@ -34,7 +48,7 @@ function ProductForm() {
             name="price"
             type="number"
             placeholder="Enter price here"
-            onChange={() => {}}
+            onChange={(event) => setPrice(event.target.value)}
           />
         </label>
       </div>
@@ -46,7 +60,7 @@ function ProductForm() {
             name="description"
             type="text"
             placeholder="Enter description here"
-            onChange={() => {}}
+            onChange={(event) => setDetail(event.target.value)}
             rows={4}
             cols={30}
           />
